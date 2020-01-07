@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
 <head>
-	<title>ATutor Module Documentation</title>
+	<title>ATutor Modul Documentation</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta name="author" content="Joel Kronenberg/Greg Gay" />
 	<meta name="description" content="ATutor module developer documentation" />
@@ -54,7 +54,7 @@ pre.code {
 	padding-right: 5px;
 }
 pre {
-	background-color: #EEEEFF;
+	background-color: #11ddbd;
 	font-family: Courier, monospace;
 	border-left: 1px solid #761596;
 	padding: 0px 0px 0px 10px;
@@ -127,15 +127,15 @@ acronym {
 <li><a href="#calendar">Module Calendar Extension</a></li>
 <li><a href="#content_format">Custom Content Manipulation</a></li>
 <li><a href="#backup">Backing-Up and Restoring</a></li>
-<ul>
+<ol>
 <li><a href="#directories">Directories</a></li>
 <li><a href="#database">Database Tables</a></li>
-</ul>
+</ol>
 <li><a href="#cron">Running Cron/Scheduling</a></li>
 </ul>
 
 <a name="intro"></a>
-<h2>Introduction</h2>
+<h5>Introduction</h5>
 	<p>ATutor 1.5.2 introduced the concept of modules, providing developers with a framework to implement additional functionality in a coherent and loosely coupled way.</p>
 
 	<p>The framework defines methods for assigning privileges, backing-up and restoring content, deleting course specific content, and adding side menu blocks,  student tools, course management and administrative tools, as well as public tools and other types of added functionality . </p>
@@ -184,29 +184,29 @@ foreach($rows_countries as $row)
 
 		<dl>
 			<dt><kbd>module.php</kbd></dt>
-			<dd>This is the main module file which gets included whenever a page is loaded. <em>Required</em>.</dd>
+			<strong>This is the main module file which gets included whenever a page is loaded. <em>Required</em>.</strong>
 
 			<dt><kbd>module.xml</kbd></dt>
-			<dd>This file is used only for identifying the module for distribution and is only used when viewing a module's details. <em>Required</em>.</dd>
+			<strong>This file is used only for identifying the module for distribution and is only used when viewing a module's details. <em>Required</em>.</strong>
 
 			<dt><kbd>module_install.php</kbd></dt>
-			<dd>This file is used when installing the module. <em>Required</em>.</dd>
+			<strong>This file is used when installing the module. <em>Required</em>.</strong>
 
 			<dt><kbd>module_uninstall.php</kbd></dt>
-			<dd>This file is used to remove the module from the system. <em>Required for ATutor  1.6.2+</em>.</dd>
+			<strong>This file is used to remove the module from the system. <em>Required for ATutor  1.6.2+</em>.</strong>
 
 			<dt><kbd>module_backup.php</kbd></dt>
-			<dd>This file is used when backing-up and restoring course content. <em>Optional</em>.</dd>
+			<strong>This file is used when backing-up and restoring course content. <em>Optional</em>.</strong>
 
 			<dt><kbd>module_delete.php</kbd></dt>
-			<dd>This file is used when deleting course specific content. <em>Optional</em>.</dd>
+			<strong>This file is used when deleting course specific content. <em>Optional</em>.</strong>
 
 
 			<dt><kbd>module_cron.php</kbd></dt>
-			<dd>This file is used to run module related commands at specified intervals. <em>Optional</em>.</dd>
+		<strong>This file is used to run module related commands at specified intervals. <em>Optional</em>.</strong>
 
 			<dt><kbd>module.sql</kbd></dt>
-			<dd>This file is used to add tables and/or modify data in the ATutor database. Also used to insert language into the <kbd>language_text</kbd> table. <em>Optional</em>.</dd>
+			<strong>This file is used to add tables and/or modify data in the ATutor database. Also used to insert language into the <kbd>language_text</kbd> table. <em>Optional</em>.</strong>
 		</dl>
 <a name="module.xml"></a>
 	<h3>The <kbd>module.xml</kbd> File</h3>
@@ -482,7 +482,7 @@ if (!$msg->containsErrors() && file_exists(dirname(__FILE__) . '/module.sql')) {
 		<p>See the Authentication &amp; Privileges section for additional details using the privileges.</p>
 
 		<dl>
-			<dt><kbd>$_course_privilege</kbd></dt>
+			<dt><kbd>$_course_privilege:</kbd></dt>
 			<dd><p>This variable controls access to a course's management section and can take one of the following values:</p>
 				<ul>
 					<li><kbd>TRUE</kbd>: To use a custom assignable privilege level. If a custom privilege is created, the module will appear as an option when assigning privileges to enrolled students.</li>
@@ -491,7 +491,7 @@ if (!$msg->containsErrors() && file_exists(dirname(__FILE__) . '/module.sql')) {
 				</ul>
 			</dd>
 
-			<dt><kbd>$_admin_privilege</kbd></dt>
+			<dt><kbd>$_admin_privilege:</kbd></dt>
 			<dd><p>This variable can take one of the following values:</p>
 				<ul>
 					<li><kbd>TRUE</kbd>: To use a custom assignable privilege level. If a custom privilege is created then the module will appear as an option when assigning privileges to administrators</li>
@@ -615,22 +615,22 @@ admin_authenticate(AT_ADMIN_PRIV_FORUMS);
 	<p>Module-specific language should be inserted into the <kbd>language_text</kbd> table during the installation process. The fields in the table are as follows:</p>
     	     	     	     	     	  
 	<dl>
-		<dt><kbd>language_code</kbd></dt>
+		<dt><kbd>language_code:</kbd></dt>
 		<dd>The ISO-639-1 language code plus locale.</dd>
 
-		<dt><kbd>variable</kbd></dt>
+		<dt><kbd>variable:</kbd></dt>
 		<dd>Set to <kbd>_module</kbd> for modules.</dd>
 
-		<dt><kbd>term</kbd></dt>
+		<dt><kbd>term:</kbd></dt>
 		<dd>The variable used for retrieving the language.</dd>
 
-		<dt><kbd>text</kbd></dt>
+		<dt><kbd>text:</kbd></dt>
 		<dd>The language text.</dd>
 
-		<dt><kbd>revised_date</kbd></dt>
+		<dt><kbd>revised_date:</kbd></dt>
 		<dd>Set to <kbd>NOW()</kbd> for modules.</dd>
 
-		<dt><kbd>context</kbd></dt>
+		<dt><kbd>context:</kbd></dt>
 		<dd>Short description of the language text.</dd>
 	</dl>
 
@@ -811,22 +811,22 @@ if(count($rows_tests) > 0){
 	<p><em>Every</em> page in ATutor must have an entry in the global <kbd>$_pages</kbd> array where the key to the array is the relative path to the file from ATutor's base directory. Module pages are specified using the <kbd>$_module_pages</kbd> array, which are then merged into the <kbd>$_pages</kbd> array when the <kbd>module.php</kbd> file is loaded. The array supports the following attributes:</p>
 
 	<dl>
-		<dt><kbd>title_var</kbd></dt>
+		<dt><kbd>title_var:</kbd></dt>
 		<dd>The language variable to be used with <kbd>_AT()</kbd>.</dd>
 
-		<dt><kbd>title</kbd></dt>
+		<dt><kbd>title:</kbd></dt>
 		<dd>The hard-coded version of the language title. If set, overrides the usage of <kbd>_AT(title_var)</kbd>. This version is not language independent.</dd>
 
-		<dt><kbd>parent</kbd></dt>
+		<dt><kbd>parent:</kbd></dt>
 		<dd>The relative ATutor path to the parent page. Omit for Student Tools.</dd>
 
-		<dt><kbd>img</kbd></dt>
+		<dt><kbd>img:</kbd></dt>
 		<dd>The relative ATutor path to the icon to use. Only for Student Tools.</dd>
 
-		<dt><kbd>children</kbd></dt>
+		<dt><kbd>children:</kbd></dt>
 		<dd>An array whose values are relative ATutor paths to sub pages.</dd>
 
-		<dt><kbd>guide</kbd></dt>
+		<dt><kbd>guide:</kbd></dt>
 		<dd>The the section of the handbook that the module page should link to. Not used for modules at this time.</dd>
 	</dl>
 
@@ -1030,16 +1030,16 @@ $sql['example']  = 'SELECT title FROM '.TABLE_PREFIX.'example WHERE course_id=?'
 		<p>For each key in the <kbd>$sql</kbd> array there must be a function with the same name, but suffixed with <kbd>_convert</kbd>. The <kbd><em>tbl_name</em>_convert()</kbd> function must return the newly transformed row with respect to the version of ATutor that was used to generate the <acronym title="Comma Separated Values">CSV</acronym> file. The function accepts the following arguments:</p>
 
 		<dl>
-			<dt><kbd>$row</kbd></dt>
+			<dt><kbd>$row:</kbd></dt>
 			<dd>An array which represents a single row in the <acronym title="Comma Separated Values">CSV</acronym> file.</dd>
 
-			<dt><kbd>$course_id</kbd></dt>
+			<dt><kbd>$course_id:</kbd></dt>
 			<dd>The course ID which this content should be associated with.</dd>
 			
-			<dt><kbd>$table_id_map</kbd></dt>
+			<dt><kbd>$table_id_map:</kbd></dt>
 			<dd>An associative array representing previously restored tables and their new keys. Used to preserve foreign key constraints.</dd>
 
-			<dt><kbd>$version</kbd></dt>
+			<dt><kbd>$version:</kbd></dt>
 			<dd>The version of ATutor that was used to generate this file.</dd>
 		</dl>
 

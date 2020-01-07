@@ -91,7 +91,7 @@ acronym {
 <body>
 <div>
 <h1>Theme Designer Documentation</h1>
-<ul>
+<ol>
 
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#install">Installing a New Theme</a></li>
@@ -101,19 +101,19 @@ acronym {
 <li><a href="#variables">Theme Variables</a></li>
 <li><a href="#testing">Testing a theme</a></li>
 <li><a href="#updating">Updating an old theme for a newer version of ATutor</a></li>
-</ul>
+</ol>
 
 <p><a name="intro"></a></p>
 
-<h2>Introduction</h2>
+<h5>Introduction</h5>
 	<p>An ATutor theme is a set of template files with images and a stylesheet that change the overall look and feel of an ATutor installation. An installation may have one or more themes installed at one time; a user is given the ability of selecting a single theme to be used while they are logged-in.</p>
 
 	<p>ATutor themes are based on Savant2 templating system. Visit the Savant site for full documentation:
 	<a href="http://phpsavant.com/">Savant</a></p>
 
 <a name="install"></a>
-<h2>Installing a New Theme</h2>
-	<h3>Importing a Theme (automatic install)</h3>
+<h4>Installing a New Theme</h4>
+	<h5>Importing a Theme (automatic install)</h5>
 	<p>Access the Theme Manager area of ATutor in the Administrator tools. Before importing a theme, the ATutor theme directory will need to be writable by the Web server. If the directory is not writable, you will see a message explaining how to make the directory writable, in place of the theme import tool. Note that themes imported this way will be owned by the Web server user, thus once imported, you will not be able to modify the files in the theme without root access to the files.</p>
 	<h3>FTP a Theme (automatic install)</h3>
 	<p>If you are planning to modify the theme to create a custom version, you will want to install the theme using the FTP method.</p>
@@ -135,17 +135,17 @@ acronym {
 <p>All theme specific files are located in <kbd>/themes/[theme_name]/</kbd>, where `[theme_name]` is the directory name (dir_name) of the theme. The `[theme_name] need not be the exact name of the theme (i.e. a theme titled `Blueberry Cheesecake` may exist in a directory called `bb_cc` etc.). The actual name of the theme is specified in that theme's configuration file.</p>
 
 <a name="structure"></a>
-<h3>Theme Directory Structure</h3>
+<h5>Theme Directory Structure</h5>
 
 <p>All theme specific files are located in /themes/[theme_name]/, where `[theme_name]` is the directory name (dir_name) of the theme. The `[theme_name] need not be the exact name of the theme (i.e. a theme titled `Blueberry Cheesecake` may exist in a directory called `bb_cc` etc.). The actual name of the theme is specified in that theme's configuration file.</p>
 
 <a name="config"></a>
-<h3>Theme Configuration File - theme.cfg.php</h3>
+<h4>Theme Configuration File - theme.cfg.php</h4>
 	<p>Each theme must have a configuration file named <kbd>theme.cfg.php</kbd>. If the theme.cfg.php file cannot be found in the theme's directory then the theme will not be made available to use. The fields in the theme.cfg.php file are documented in the file; they describe such things as the name of the theme, its author, and the version of ATutor the theme should be installed with.</p>
 
 <a name="create"></a>
-<h2>Creating a Theme</h2>
-<p>Here are a couple ways to create a new theme:</p>
+<h4>Creating a Theme</h4>
+<strong>Here are a couple ways to create a new theme:</strong>
 <ol>
 <li> One way to create a theme, and for many <strong>the preferred way</strong>, is to copy the <strong>Primary Theme Files</strong> from the default theme into a new theme directory. You can copy these files from other themes that may look closer to the style you want to create, but the default theme will always be most up to date. In many cases it is only necessary to modify the stylesheet (styles.css) to adjust colours, fonts, and some layout styles etc, to create a new theme. A theme can be made up of a single stylesheet file and a theme.cfg.php file. Most other templates used to layout various tool screens, table displays, test items etc. you probably won't need to include in your theme. If templates are not found in the new theme, they will be inherited from the default theme. <br /><br />
 
@@ -154,7 +154,7 @@ In some cases you may want to make more significant changes to the layout than c
 These files are generally all that are required to create a new theme:<br /><br />
 
 <strong>Primary Theme Files</strong><br />
-<ol>
+<ul>
    <li> styles.css</li>
    <li> theme.cfg.php</li>
    <li> theme_info.xml</li>
@@ -165,7 +165,7 @@ These files are generally all that are required to create a new theme:<br /><br 
           <li>footer.tmpl.php</li>
 	</ul>
     </li>
-</ol><br /><br />
+</ul><br /><br />
 </li>
 
 <li> If you have limited access to the ATutor files on the server, export one of the themes displayed in the administrator's Theme Manager. The theme is exported onto your computer as a '.zip' file. Unzip the file, then make changes to theme files it contains. Be sure to edit the theme_info.xml file to give your theme a new name. Once you've made your changes, zip the files together again and import that file back into ATutor with the Theme Manager. The name of the zip file you create should closely represent the name you want to give your theme, substituting '_' for spaces.</li>
@@ -200,7 +200,7 @@ VALUES
 <p>ATutor detects the type of the devices where the requests are from. If the request is from a desktop computer, the default desktop theme is automatically applied. Otherwise, if the request is from a mobile device, the default mobile theme is applied.</p>
 
 <a name="variables"></a>
-<h2>Theme Variables</h2>
+<h4>Theme Variables</h4>
 <p>The following is a complete list of variables that can be used in themes as of 2.1.1. These variables contain various data from the ATutor application, that when inserted into a theme template, display some value, or values. The most up to date list of theme variables can be found in the include/header.tmpl.php file of the default theme for the version of ATutor you are using. See the ATutor <a href="guidelines.html">Developer Documentation</a> for details about using the <kbd>debug()</kbd> function to print out a list of the values to help while you are designing a theme.</p>
 
 <pre>
@@ -242,17 +242,17 @@ VALUES
 * mobile_device_type        One of the values: ipod, blackberry, android, unknown, ipad
 </pre>
 <a name="testing"></a>
-<h2>Testing A Theme</h2>
+<h4>Testing A Theme</h4>
 <p>To make ATutor use your theme, login as an ATutor user, go to "Preferences" page, "ATutor Settings" tab. Depending on the theme type, your theme will be displayed either in "Desktop Theme" or in "Mobile Theme" choices. Find and select your theme name and save. ATutor will automatically switch to the saved theme. Note that if your theme is defined as a mobile theme, it will only be applied when you access ATutor via a mobile device. Vice versas for destop theme.</p>
 
 <a name="updating"></a>
-<h2>Updating an Old Theme</h2>
+<h4>Updating an Old Theme</h4>
 
 <p>Occasionally new features are added to themes, and adjustments are needed to allow older themes to work with newer versions of ATutor, or to add new functionality to themes that was not available in older versions.</p>
 
 <p><strong>NOTE:</strong> There is not a direct upgrade path from the 1.6 series themes to the 2.0+ series themes. We suggest you start as you would creating a new theme, copying the files from the 2.0 default theme, then copy the stylesheet from the old theme into the stylesheet for the new theme, as well as copying any images from the old to the new.</p>
 
-<h2>Sharing Themes</h2>
+<h4>Sharing Themes</h4>
 <p>Once you've perfected your theme, consider contributing it to the ATutor community so others can use it. Visit the Themes section of ATutor.ca to contribute a theme. Login with your atutor.ca user account, then submit your theme to receive credit for your work. Contributing a theme will automatically raise your ATutor contributor status to the Bronze level. Or, if you're not interested in being credited, just send the theme to the ATutor team (info//AT//atutor.ca), or post it to one of the forums, and the ATutor team will submit the theme for you.</p>
 
 <p><a href="http://www.atutor.ca/atutor/themes/submit_theme.php">Submit a Theme</a></p>
