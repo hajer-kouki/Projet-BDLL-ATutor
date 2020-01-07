@@ -1,48 +1,36 @@
 pre {
-	font-family: Arial, sans-serif;
+	font-family: Verdana, Arial, sans-serif;
 }
-
 body{
-	background-color: #FFF;
-    font-family: Verdana,Arial,sans-serif;
+	background-color: #fafa;
+    font-family: Verdana, Arial,sans-serif;
+	font-size: larger;
+	line-height:200%;
 }
 h1,h2,h3,p, table, ul {
-	margin: 0 10px
+	text-align: center;
+    font-family: Verdana,Arial,sans-serif;
 }
 h1 {
-	color: #FFF;
-	border-bottom: 1px dashed #FFF;
+	border-bottom: 1px dashed #cfcfcf;
 	margin-left: -5px;
 	padding-left: 15px;
 	margin-right: -5px;
 	padding-right: 15px;
 }
-h2{color: #FFF;
-	border-bottom: 1px dashed #FFF;
+h2{
+	color: #666;
+	border-bottom: 1px dashed #cfcfcf;
 	margin-left: -5px;
 	padding-left: 15px;
 	margin-right: -5px;
 	padding-right: 15px;
 }
-h3{color: #f0f0f0}
-p{padding-bottom:1em}
-h2{padding-top: 0.3em}
-
-/* for the curves */
-div.nifty { margin: 10px 2%; background: #9BD1FA; }
-b.rtop, b.rbottom{display:block;background: #FFF}
-b.rtop b, b.rbottom b{display:block;height: 1px; overflow: hidden; background: #9BD1FA}
-b.r1{margin: 0 5px}
-b.r2{margin: 0 3px}
-b.r3{margin: 0 2px}
-b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
-
-
 a {
 	text-decoration: none;
-	border-bottom: 1px solid white;
-	color: white;
+	border-bottom: 1px solid;
 	font-weight: bold;
+	color: green;
 }
 a:hover {
 	border-bottom: 0px;
@@ -82,11 +70,11 @@ div#toc li {
 	padding-bottom: 0px;
 }
 
-ol {
+ul {
 	margin-top: 0px;
 }
 
-ol li {
+ul li {
 	padding-bottom: 3px;
 }
 
@@ -97,41 +85,80 @@ dl dd {
 	padding-top: 0px;
 	padding-left: 5px;
 	margin-left: 5%;
-	border-left: 1px solid #f0f0f0;
+	border-left: 1px solid #d0d0d0;
 	margin-bottom: 10px;
-} 
+}
 
+dd p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+dd p:last-child {
+	padding-bottom: 0px;
+}
 acronym {
 	cursor: help;
 }
-
 a[href*="http"] {
+	color: red;
 	padding-right: 8px;
 	background-image: url('link-out.gif');
 	background-repeat: no-repeat;
 	background-position: right 4px;
 	margin-right: 2px;
 }
-
 div#nav-links {
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-bottom: 20px;
 }
-
 div#nav-links a {
 	color: black;
 	text-decoration: none;
 	border-bottom: 1px solid;
 }
-
 pre {
 	font-family: Courier, monospace;
-	background-color: #EEEEFF;
+	background-color: #eef;
 	padding: 5px;
 	margin-left: 20px;
 	color:#761596;
     margin-top: 0px;
 	width: 50%;
 	font-size: smaller;
+}
+div.seq {
+	font-size: smaller;
+	padding: 5px;
+	border: 1px dashed #cfcfcf;
+}
+div.tag {
+	margin: 10px;
+	font-size: smaller;
+	padding: 5px;
+	line-height: 110%;
+	color: #cfcfcf;
+}
+div.add-note {
+	background-color: #f0f0f0;
+	padding: 5px;
+}
+div.add-note h3 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+div.note {
+	background-color: #fefefe;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+div.note h4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+div.note h5 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	float: right;
+	font-weight: normal;
 }
