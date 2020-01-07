@@ -40,8 +40,8 @@ $install_steps[7] = array('name' => 'Done!');
 	<script type="text/javascript" src="../jscripts/infusion/InfusionAll.js"></script>
 </head>
 <body>
-<div style="height: 70px; vertical-align: bottom; background-color: #354A81">
+<div style="height: 70px; vertical-align: bottom; background-color: #F2FCF0">
 	<h1 id="header">ATutor <?php echo $new_version; ?> Installation</h1>
-	<img src="../images/AT_Logo_1_sm.png" height="35" width="97" alt="ATutor Logo" id="logo" />
+	<img src="../images/atutor_logo2.png" height="35" width="97" alt="ATutor Logo" id="logo" />
 </div>
 <div class="content">
