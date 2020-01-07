@@ -147,7 +147,7 @@ ul#subnavlist span#showsubnav{
     background-image: url('images/mswitch_plus.gif');
     background-position: right center;
     background-repeat: no-repeat;
-    width:2em;
+    width:3em;
     cursor:pointer;
     display:none;
 }
