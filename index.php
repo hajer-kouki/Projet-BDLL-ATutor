@@ -1,180 +1,178 @@
 <?php
-/************************************************************************/
-/* ATutor                                                               */
-/************************************************************************/
-/* Copyright (c) 2002 - 2009                                            */
-/* Inclusive Design Institute                                           */
-/*                                                                      */
-/* This program is free software. You can redistribute it and/or        */
-/* modify it under the terms of the GNU General Public License          */
-/* as published by the Free Software Foundation.                        */
-/************************************************************************/
-//test
-define('AT_INCLUDE_PATH', 'include/');
-require(AT_INCLUDE_PATH . 'vitals.inc.php');
-
-if (isset($_GET['cid'])) {
-	header('Location: '.$_base_href.'content.php?cid='.intval($_GET['cid']));
-	exit;
+require(dirname(__FILE__) .'/../common/vitals.inc.php');
+//require(dirname(__FILE__) .'/../common/db_connect.inc.php');
+// using 401 authentication
+/*
+if (isset($_GET['login'])) {
+	if (!isset($_SERVER['PHP_AUTH_USER'])) {
+		header('WWW-Authenticate: Basic realm="Administrator Login"');
+		header('HTTP/1.0 401 Unauthorized');
+		echo 'Wrong username/password combination.';
+		exit;
+	} else {
+		$_POST['username'] = $_SERVER['PHP_AUTH_USER'];
+		$_POST['password'] = $_SERVER['PHP_AUTH_PW'];
+		$_POST['submit']   = true;
+	}
+	unset($_SERVER['PHP_AUTH_USER']);
+	unset($_SERVER['PHP_AUTH_PW']);
 }
 
-if (isset($_SESSION['course_id'])) 
-	$course_id = $_SESSION['course_id'];
-else if (isset($_GET['p_course'])) // is set when pretty url is turned on and a public course is accessed
-	$course_id = $_GET['p_course'];
-else // is set when guests access protected course
-	$course_id = $_GET['course'];
+$config_location = '../../include/config.inc.php';
+if (is_file($config_location) && is_readable($config_location)) {
+	require($config_location);
+
+	//$db = mysql_connect(DB_HOST . ':' . DB_PORT, DB_USER, DB_PASSWORD);
+	//  mysql_select_db(DB_NAME, $db);
+
+	// check atutor config table to see if handbook notes is enabled.
+	//$sql    = "SELECT value FROM ".TABLE_PREFIX."config WHERE name='user_notes'";
+	//$result = @mysql_query($sql, $db);
+
+	//$sql    = "SELECT value FROM %sconfig WHERE name='user_notes'";
+	//$rows_usernotes = queryDB($sql, array(TABLE_PREFIX), TRUE);
 	
-require(AT_INCLUDE_PATH . '../mods/_standard/tests/lib/test_result_functions.inc.php');
-	
-if (defined('AT_FORCE_GET_FILE') && AT_FORCE_GET_FILE) {
-	$course_base_href = 'get.php/';
-} else {
-	$course_base_href = 'content/' . $course_id . '/';
-}
+	//if(count($rows_usernotes) > 0){
+	//if (($row = mysql_fetch_assoc($result)) && $row['value']) {
+	//	define('AT_HANDBOOK_ENABLE', true);
+	//	$enable_user_notes = true;
+	//}
+	//define('AT_HANDBOOK_DB_TABLE_PREFIX', TABLE_PREFIX);
 
-//query reading the type of home viewable. 0: icon view   1: detail view
-$sql = "SELECT home_view FROM %scourses WHERE course_id = %d";
-$row = queryDB($sql,array(TABLE_PREFIX, $course_id), TRUE);
-$home_view = $row['home_view'];
+	//if (isset($_POST['submit'])) {
+		// try to validate $_POST
+		// authenticate against the ATutor database if a connection can be made
+	//	$_POST['username'] = addslashes($_POST['username']);
+	//	$_POST['password'] = addslashes($_POST['password']);
+			
+		//if (!$db) {
+		//	$db = @mysql_connect(AT_HANDBOOK_DB_HOST . ':' . AT_HANDBOOK_DB_PORT, AT_HANDBOOK_DB_USER, AT_HANDBOOK_DB_PASSWORD);
+		//	if (@mysql_select_db(AT_HANDBOOK_DB_DATABASE, $db)) {
+		//		$enable_user_notes = true;
+		//	}
+		//}
+			
+		// check if it's an admin login.
+	//	$sql = "SELECT login, `privileges` FROM ".TABLE_PREFIX."admins WHERE login='$_POST[username]' AND PASSWORD(password)=PASSWORD('$_POST[password]') AND `privileges`>0";
+	//	$result = mysql_query($sql, $db);
+	//	if ($row = mysql_fetch_assoc($result)) {
+	//		$_SESSION['handbook_admin'] = true;
+	//		header('Location: '.$_SERVER['PHP_SELF']);
+	//		exit;
+	//	}
+	} else if (isset($_GET['logout'])) {
+		header('WWW-Authenticate: Basic realm="Administrator Login"');
+		header('HTTP/1.0 401 Unauthorized');
 
-// Get the course description to display in the description metadata
-$sql2 = "SELECT description FROM %scourses WHERE course_id=%d";
-$row2 = queryDB($sql2, array(TABLE_PREFIX, $course_id), TRUE);
-if($row2['description'] != ''){
-	$content_description =  $row2['description'];
-}
-// Enable drag and drop to reorder displayed modules when the module view mode is 
-// set to "detail view" and user role is instructor
-if ($home_view == 1 && authenticate(AT_PRIV_ADMIN,AT_PRIV_RETURN))
-{
-	$_custom_head .= '
-<link rel="stylesheet" type="text/css" href="'.AT_BASE_HREF.'jscripts/infusion/framework/fss/css/fss-text.css" />
-<link rel="stylesheet" type="text/css" href="'.AT_BASE_HREF.'jscripts/infusion/framework/fss/css/fss-theme-mist.css" />
-<link rel="stylesheet" type="text/css" href="'.AT_BASE_HREF.'jscripts/infusion/framework/fss/css/fss-theme-hc.css" />
-<link rel="stylesheet" type="text/css" href="'.AT_BASE_HREF.'jscripts/infusion/components/reorderer/css/Reorderer.css" />
-
-<script type="text/javascript">
-//<!--
-jQuery(document).ready(function () {
-	var reorder_example_grid = fluid.reorderGrid("#details_view",  {
-		selectors : {
-			movables : ".home_box" 
-			/*,
-			grabHandle: ".home-title a" 
-			*/
-		},
-	    listeners: {
-			afterMove: function (item, requestedPosition, movables) {
-				//save the state to the db
-				var myDivs = jQuery ("div[class^=home_box]", "#details_view");
-				var moved_modules = "";
-				
-				if (myDivs.constructor.toString().indexOf("Array"))   // myDivs is an array
-				{
-					for (i=0; i<myDivs.length; i++)
-						moved_modules += myDivs[i].id+"|";
-				}
-				moved_modules = moved_modules.substring(0, moved_modules.length-1); // remove the last "|"
-				
-				if (moved_modules != "")
-					jQuery.post("'.AT_BASE_HREF.'move_module.php", { "moved_modules":moved_modules, "from":"course_index" }, function(data) {});     
-	        }
-	    },
-		styles: {
-		    selected: "draggable_selected",
-		    hover: "draggable_selected"
-		}
-	});
-	
-});
-
-function remove_module(module)
-{
-	jQuery.post("'.AT_BASE_HREF.'move_module.php", { "remove":module, "from":"course_index" }, function(data) {});
-	jQuery("div[id=\""+module.replace(/\//g,"-")+"\"]").hide("slow");
-}
-//-->
-</script>
-	
-';
-}
-
-require(AT_INCLUDE_PATH . 'header.inc.php');
-
-/* the "home" links: */
-$home_links = get_home_navigation();
-$savant->assign('home_links', $home_links);
-
-
-/* the news announcements: */
-$news = array(); 
-$num_pages = 1;
-$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
-if (!$page) {
-	$page = 1;
-}	
-
-$module =& $moduleFactory->getModule(AT_MODULE_DIR_STANDARD.'/announcements');
-if (!$module->isEnabled()) {
-	$result = FALSE;
-	$news = array();
-} else {
-
-	$sql	= "SELECT COUNT(*) AS cnt FROM %snews WHERE course_id=%d";
-	$row = queryDB($sql, array(TABLE_PREFIX, $course_id), TRUE);
-}
-
-if ($row['cnt'] > 0) {
-
-	$num_results = $row['cnt'];
-	$results_per_page = NUM_ANNOUNCEMENTS;
-	$num_pages = ceil($num_results / $results_per_page);
-
-	$count = (($page-1) * $results_per_page) + 1;
-
-	$offset = ($page-1)*$results_per_page;
-
-	$sql = "SELECT N.*, DATE_FORMAT(N.date, '%%Y-%%m-%%d %%H:%%i:%%s') AS date, first_name, last_name 
-	          FROM %snews N, %smembers M 
-	         WHERE N.course_id=%d 
-	           AND N.member_id = M.member_id
-	         ORDER BY date DESC LIMIT %d, %d";
-
-	$news_rows = queryDB($sql, array(TABLE_PREFIX, TABLE_PREFIX, $course_id, $offset,$results_per_page ));
-
-	foreach($news_rows as $row){
-		/* this can't be cached because it called _AT */
-
-		$news[$row['news_id']] = array(
-						'date'		=> AT_date(	_AT('announcement_date_format'), 
-						$row['date'],
-						AT_DATE_MYSQL_DATETIME),
-					  	'author'  => $row['first_name'] . ' ' . $row['last_name'],
-						'title'		=> AT_print($row['title'], 'news.title'),
-						'body'		=> format_content(stripslashes($row['body']), $row['formatting'], $glossary));
-
+		unset($_SERVER['PHP_AUTH_USER']);
+		unset($_SERVER['PHP_AUTH_PW']);
+		unset($_SESSION['handbook_admin']);
+		session_write_close();
+		header('Location: '.$_SERVER['PHP_SELF']);
+		exit;
 	}
 }
 
-$sql = "SELECT banner FROM %scourses WHERE course_id=%d";
-$row = queryDB($sql, array(TABLE_PREFIX, $course_id), TRUE);
+if (!defined('AT_HANDBOOK_ENABLE')) {
+	// use local config file
+	require('../config.inc.php');
 
-if ($row['banner'] != '') {
-    $row['banner'] = str_replace("\\n","",$row['banner']);
-    $row['banner'] = str_replace("\\r","",$row['banner']);
-    $row['banner'] = stripslashes($row['banner']);
-	$savant->assign('banner', AT_print($row['banner'], 'courses.banner'));
-} else {
-	$savant->assign('banner', '');
+	if (isset($_POST['submit'])) {
+		// try to validate $_POST
+		if (($_POST['username'] == AT_HANDBOOK_ADMIN_USERNAME) && ($_POST['password'] == AT_HANDBOOK_ADMIN_PASSWORD)) {
+			$_SESSION['handbook_admin'] = true;
+			header('Location: '.$_SERVER['PHP_SELF']);
+			exit;
+		}
+	} else if (key($_GET) == 'logout') {
+		header('WWW-Authenticate: Basic realm="Administrator Login"');
+		header('HTTP/1.0 401 Unauthorized');
+
+		unset($_SERVER['PHP_AUTH_USER']);
+		unset($_SERVER['PHP_AUTH_PW']);
+		unset($_SESSION['handbook_admin']);
+		session_write_close();
+		header('Location: '.$_SERVER['PHP_SELF']);
+		exit;
+	}
 }
 
-$savant->assign('view_mode', $home_view);
-$savant->assign('announcements', $news);
-$savant->assign('num_pages', $num_pages);
-$savant->assign('current_page', $page);
-$savant->display('index.tmpl.php');
+if (!$db && defined('AT_HANDBOOK_ENABLE') && AT_HANDBOOK_ENABLE) {
+	$db = @mysql_connect(AT_HANDBOOK_DB_HOST . ':' . AT_HANDBOOK_DB_PORT, AT_HANDBOOK_DB_USER, AT_HANDBOOK_DB_PASSWORD);
+	@mysql_select_db(AT_HANDBOOK_DB_DATABASE, $db);
+	$enable_user_notes = true;
+}
+*/
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="<?php if ($req_lang) { echo $req_lang; } else { echo 'dp'; } ?>">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title><?php get_text('doc_title'); ?></title>
+	<link rel="stylesheet" href="../common/styles.css" type="text/css" />
+</head>
+<body>
+<?php if ($missing_lang): ?>
+	<div style="margin: 20px auto; border: 1px solid #aaf; padding: 4px; text-align: center; background-color: #eef;">
+		<?php get_text('page_not_translated'); ?>
+	</div>
+<?php endif; ?>
 
-require(AT_INCLUDE_PATH.'footer.inc.php');
+<h1><?php get_text('doc_title'); ?></h1>
+<p><?php get_text('doc_welcome'); ?></p>
+
+	<ul>
+		<li><a href="../general/index.php?<?php echo $req_lang; ?>"><?php get_text('doc_user'); ?></a></li>
+		<li><a href="../admin/index.php?<?php echo $req_lang; ?>"><?php get_text('doc_admin'); ?></a></li>
+		<li><a href="../instructor/index.php?<?php echo $req_lang; ?>"><?php get_text('doc_instructor'); ?></a></li>
+		<li><a href="../developer/guidelines.html"><?php get_text('doc_dev'); ?></a></li>
+		<li><a href="../developer/modules.html"><?php get_text('doc_mods'); ?></a></li>
+		<li><a href="../developer/themes.html"><?php get_text('doc_themes'); ?></a></li>
+	</ul>
+
+	<ul>
+		<li><a href="http://www.atutor.ca" target="new">atutor.ca</a></li>
+		<li><a href="http://www.atutor.ca/forums/" target="new">atutor.ca/forums/</a></li>
+		<li><a href="http://www.atutor.ca/atutor/docs/index.php" target="new">atutor.ca/atutor/docs/</a></li>
+	</ul>
+
+<?php if ($enable_user_notes && (!isset($_SESSION['handbook_admin']) || (isset($_SESSION['handbook_admin']) && !$_SESSION['handbook_admin']))): ?>
+	<div style="text-align: right;">
+		<p><?php get_text('doc_notes_enabled');  ?></p>
+	</div>
+<?php elseif ($enable_user_notes): ?>
+
+	<p><?php get_text('doc_logged_in'); ?></p>
+
+	<?php
+	//	$sql = "SELECT note_id, date, section, page, email, note FROM ".AT_HANDBOOK_DB_TABLE_PREFIX."handbook_notes WHERE approved=0 ORDER BY date DESC";
+	//	$result = mysql_query($sql, $db);
+	?>
+	<div class="add-note">
+		<h3><?php get_text('doc_unapproved_notes'); ?></h3>
+	</div>
+
+	<?php
+	/*
+	 if ($result && (mysql_num_rows($result) > 0)): ?>
+		<?php while ($row = mysql_fetch_assoc($result)): ?>
+			<div class="note">
+				<h5><?php echo $row['date']; ?>
+					<a href="../approve_note.php?id=<?php echo $row['note_id']; ?>" onclick="return confirm('<?php echo get_text('doc_approved_confirm'); ?>');"><?php  get_text('doc_approve'); ?></a> | 
+					<a href="../delete_note.php?id=<?php echo $row['note_id']; ?>" onclick="return confirm('<?php echo get_text('doc_delete_confirm'); ?>');"><?php get_text('doc_delete'); ?></a>
+				</h5>
+				<h4><?php echo $row['email'];?></h4>
+				<p><?php echo nl2br($row['note']); ?></p>
+			</div>
+		<?php endwhile; ?>
+	<?php else: ?>
+		<div class="note"><?php get_text('doc_no_notes'); ?></div>
+	<?php endif; 
+	
+	*/ ?>
+
+<?php endif; 
 
 ?>
+
+</body>
+</html>
