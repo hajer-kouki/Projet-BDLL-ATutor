@@ -14,8 +14,8 @@
 body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	color: black;
-	background-image: linear-gradient(rgba(255, 0, 247, 0.55), rgba(255, 255, 0, 0.5)),
-                  url("../images/NI.jpg");
+	background-color: pink;
+	background-image: linear-gradient(rgba(255,0,247,0.55),rgba(255,255,0,0.5)url();
 	margin-bottom: 0px;
 	margin-top: 0px;
 	margin-left: 0px;
@@ -25,14 +25,14 @@ body {
 
 code {
 	font-size: x-small;
-	color: black;
+	color: blue;
 }
 
 kbd {
   padding: 0px 1px 0px 1px;
   border-width: 1px 2px 2px 1px;
   border-style: solid;
-  background: blue;
+  background: #faf6f6;
   color: #000;
   border-color:  #edd #baa #baa #eed;
   font-size: small;
@@ -48,8 +48,6 @@ p {
 	margin-left: 5px;
 	margin-right: 0px;
 	font-size: small;
-	text-align: center;
-	font-weight:bold
 }
 
 p.heading {
@@ -75,11 +73,10 @@ p.error {
 
 h1#header {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #ec619b;
-	float: left;
+	color: pink;
+	float: center;
 	display: inline;
-	margin: 15px;
-	margin-left:450px;
+	margin: 100px;
 }
 
 
@@ -93,9 +90,9 @@ ul {
 
 li {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	margin-bottom: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
 }
 li.important{
 	color: red;
@@ -104,8 +101,8 @@ li.important{
 /* link attributes */
 a:link {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #384F89;
-	border-bottom: 1px solid #384F89;
+	color: blueviolet;
+	border-bottom: 1px solid blue;
 	text-decoration: none;
 }
 a:visited {
@@ -179,7 +176,7 @@ form {
 /* breadcrumbs */
 td.breadcrumbs	{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #FFFFFF;
+	color: white;
 	background-color: #006699;
 	height: 26px;
 }
@@ -205,19 +202,19 @@ a.breadcrumbs:visited {
 	text-decoration: none; 
 }
 
-/* 
+/*
 td.rowpic {
-		background-color: #FFFFFF;
+		background-color: black;
 		background-image: url('images/cellpic2.jpg');
 		background-repeat: repeat-y;
 }
-*/
 
+/*
 /* the menu */
 td.row1, table.row1 { 
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-weight: normal;
-	background-color: #0f00f1;
+	background-color: white;
 	vertical-align: top;	
 	padding: 8px;
 	border-bottom: 1px #98AAB1 solid;
@@ -227,8 +224,7 @@ td.row1, table.row1 {
 td.cat, th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	background-repeat: repeat-x;
-	background-color:#D1D7DC;
-	color:rgb(5, 13, 253); 
+	background-color:white; 
 	height: 25px;
 	text-align: center;
 	font-weight: bold;
@@ -282,7 +278,7 @@ font-family: Verdana, Arial, Helvetica, sans-serif;
 	/*height: 27px;*/
 	text-align: center;
 	font-weight: bold;
-	border: 1px #98AAB1 solid;
+	border: 1px black;
 }
 table.cat3 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -296,7 +292,7 @@ td.row2 {
 	height: 1px;
 }
 td.row3 {
-	background-color: #006699;
+	background-color: black;
 	font-weight: normal;
 	height: 1px;
 }
@@ -369,28 +365,16 @@ select.dropdown {
 }                                                             
   
 h1, h2, h3, h4, h5, h6 {
-	color: rgba(255, 222, 0, 255);
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 5px;
-	text-align: center;
-
 }
 
 h3 {
-text-shadow: -1px -1px 1px #0f00f1,
-             0px 4px 1px rgba(9, 5, 245, 0.5),
-             4px 4px 5px rgba(45, 14, 214, 0.7),
-             0px 0px 7px rgba(10, 60, 241, 0.4);	text-align: center;
 	border-bottom: 1px solid #354A81;
 }
 
-h4 {
-	text-shadow: -1px -1px 1px #0f00f1,
-             0px 4px 1px rgba(9, 5, 245, 0.5),
-             4px 4px 5px rgba(45, 14, 214, 0.7),
-             0px 0px 7px rgba(10, 60, 241, 0.4);
-}
+
 .content {
 	padding: 20px;
 	font-size: small;
@@ -440,13 +424,13 @@ img#logo {
 }
 div#feedback {
     background-color: #F2FCF0;
-    border: 2px solid #b5069f;
+    border: 1px solid #17B506;
     border-radius: 0.5em 0.5em 0.5em 0.5em;
     color: #595241;
     font-weight: bold;
     margin: 15px auto;
     padding: 5px;
-    width: 25%;
+    width: 50%;
 }
 div.install {
 	border: 1px solid #354A81;
@@ -470,7 +454,7 @@ div.suggested {
 
 /* for data tables */
 table.data {
-	border: 2px solid #2700ff;
+	border: 1px solid #f0f0f0;
 	width: 90%; 
 	margin-left: auto;
 	margin-right: auto;
