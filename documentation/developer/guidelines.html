@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eng" lang="eng"> 
 
 <head>
-	<title>ATutor Developer Documentation</title>
+	<title>ATutor Developer Documentation </title>
 	<meta name="author" content="Joel Kronenberg" />
-	<meta name="description" content="ATutor developer documentation and coding guidelines" />
+	<meta name="des cription" content="ATutor developer documentation and coding guidelines" />
 
 <style type="text/css">
 h1 {
-	background-color: #CCCCCC;
+	background-color:"pink";
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-bottom: 10px;
@@ -65,10 +65,10 @@ pre.code {
 }
 </style>
 </head>
-<body>
-<h1><a name="top"></a>ATutor Developer Documentation</h1>
+<body style="background-image: url(poo.jpg); ">
+<h1 style="color:#ff0000"; ><a name="top"></a>ATutor Developer Documentation</h1>
 
-<h4>Table of Contents</h4>
+<h2 style="color:#ff0000">Table of Contents</h2>
 
 <ul>
 	<li>0. <a href="#version">Version Considerations</a></li>
@@ -190,23 +190,23 @@ pre.code {
 </ul>
 
 <a href="#top" class="top">top</a>
-<h2><a name="version"></a>0. Version Considerations</h2>
+<h2 style="color:#ff0000"><a name="version"></a>0. Version Considerations</h2>
 	<p>This document is found in ATutor's <kbd>documentation/</kbd> directory and is maintained along with the rest of the code in the code repository. The latest version of this document will always be available in the repository. Versions bundled with ATutor releases are specific to that release. If you are modifying a previous version of ATutor then you should refer to the version of these guidlines as they are available with that specific version.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="introduction"></a>1. Introduction</h2>
+<h2 style="color:#ff0000"><a name="introduction"></a>1. Introduction</h2>
 	<p>ATutor, as an open source project, encourages PHP developers to develop their own custom features, and potentially contribute those features so they become a permanent part of ATutor. To ensure that  code is easy to  maintain, we urge developers to follow the guidelines outlined below. These rules and recommendations were created to standardize the distributed development process.</p>
 
 	<p>The latest version of this document can always be found at <a href="http://www.atutor.ca/atutor/docs/">ATutor.ca</a>.</p>
-	<h3><a name="introduction-api"></a>1.1 API Documentation</h3>
+	<h3 style="color:#ff0000"><a name="introduction-api"></a>1.1 API Documentation</h3>
 		<p>Detailed API documentation is distributed throughout the ATutor source code, describing functions and classes, and how they are used in developing features. API documentation can be extracted into a relatively compact form for easy scanning and searching using the <strong>phpDocumentor module</strong>. Download the module from atutor.ca, and install it like any other module, then run the application to extract the API documentation from ATutor.</p>
 
 		<p><a href="http://www.atutor.ca/atutor/modules/index.php">phpDocumentor Module</a></p>
 <a href="#top" class="top">top</a>
-<h2><a name="conventions"></a>2. Conventions Used in This Document</h2>
+<h2 style="color:#ff0000"><a name="conventions"></a>2. Conventions Used in This Document</h2>
 	<p>This section covers the typographical conventions used in this document.</p>
 
-	<h3><a name="typographic-conventions"></a>2.1 Typographic Conventions</h3>
+	<h3 style="color:#ff0000"><a name="typographic-conventions"></a>2.1 Typographic Conventions</h3>
 	<dl>
 		<dt><kbd>Constant width</kbd></dt>
 		<dd><p>Used for commands and code examples. Example: Use the <kbd>debug()</kbd> function to view a variable.</p></dd>
@@ -223,10 +223,10 @@ pre.code {
 
 	<p>Example code is to be used as examples only and not as tested production code. In most cases its usefulness in the context of the example outweighs its correctness as workable code. In other cases the syntax and style used in the example itself are irrelevant and do not follow the coding guidelines outlined below. For example, <kbd>array</kbd>s may be documented using <kbd>string</kbd> keys without quoting their value, <kbd>$_SESSION[prefs]</kbd>, while in practice it is always best to escape the key with quotes: <kbd>$_SESSION['prefs']</kbd>.</p>
 
-	<h3><a name="links-conventions"></a>2.2 Links</h3>
+	<h3 style="color:#ff0000"><a name="links-conventions"></a>2.2 Links</h3>
 		<p>All the links in this document open in the current browser. Links that are not obviously to external sites are supplemented with <em>title</em> text. All other links are assumed to be anchors within this document.</p>
 
-	<h3><a name="function-definitions"></a>2.3 Function Definitions (Prototypes)</h3>
+	<h3 style="color:#ff0000"><a name="function-definitions"></a>2.3 Function Definitions (Prototypes)</h3>
 		<p>The usage of the square brackets (<kbd>`[`</kbd> and <kbd>`]`</kbd>) around parameters imply that they are optional, in which case the function documentation will then state what the default value for that variable is. Please pay close attention to the return types of functions: If a function is described to return <kbd>boolean</kbd> then it will return either <kbd>TRUE</kbd> or <kbd>FALSE</kbd> and <strong>not</strong> an <kbd>integer</kbd> such as 0 or 1. Optional arguments to functions must always be listed as the last parameters in the list.</p>
 
 		<p><kbd>returned_type <strong>function_name</strong>( param_type $param_name [, opt_param_type $opt_param_name])</kbd></p>
@@ -245,7 +245,7 @@ pre.code {
 		</dl>
 
 <a href="#top" class="top">top</a>
-<h2><a name="setup">3. Setup</a></h2>
+<h2 style="color:#ff0000"><a name="setup">3. Setup</a></h2>
 	<p>Please review the <a href="http://atutor.ca/atutor/docs/requirements.php" title="ATutor.ca - requirements">ATutor requirements</a> and ensure that your development environment meets the minimum requirements.</p>
 
 	<ul>
@@ -260,7 +260,7 @@ pre.code {
 	<li><a href="http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29">LAMP</a> (Linux)</li>
 	</ul>
 
-	<h3><a name="php-configuration"></a>3.1 PHP Configuration</h3>
+	<h3 style="color:#ff0000"><a name="php-configuration"></a>3.1 PHP Configuration</h3>
 	<p>Setting below can be found in the <kbd>php.ini</kbd> on your system after installing the system software. Listed below are the essential configuration options and their recommended value:</p>
 <pre class="code">
 safe_mode            = Off
@@ -275,10 +275,10 @@ register_argc_argv   = Off</pre>
 
 <a href="#top" class="top">top</a>
 
-<h2><a name="github"></a>4. GitHub</h2>
+<h2 style="color:#ff0000"><a name="github"></a>4. GitHub</h2>
 <p>The ATutor source code is maintained in a <a href="https://github.com/atutor/ATutor">GitHub repository</a>, a public version control system that provides "Social Coding" capabilities, making it relatively easy for ATutor developers to have work added to ATutor's public source code. Developers will need to become familiar with Git and GitHub if they wish to participate in ATutor development. There is plenty of documentation on using Git and GitHub. You might read through the book at <a href="http://progit.org/book/">Git Pro</a>, or review the <a href="http://help.github.com/">GitHub Help</a> documentaiton. </p>
 <a name="github_setup"></a>
-	<h3><a name="git-install"></a>4.1 Setting up a Git Development Environment</h3>
+	<h3 style="color:#ff0000"><a name="git-install"></a>4.1 Setting up a Git Development Environment</h3>
 	<p>Though there are a variety of Git client applications available, working from a command prompt issuing Git commands is relatively easy to learn. Knowing a small set of Git commands is all you required to get up and running, and contributing code through GitHub. </p>
 	
 	<p>For <strong>Mac users</strong> there is <a href="http://mac.github.com/">GitHub for Mac</a>, which can be installed to setup Git on your Mac. It provides a graphical client through which GitHub can be accessed.</p>
@@ -287,7 +287,7 @@ register_argc_argv   = Off</pre>
 	
 	<p><strong>Linux users</strong> also have a variety of Github clients available, such as <a href="http://cola.tuxfamily.org/">Git Cola </a> or <a href="http://live.gnome.org/giggle">Giggle</a>, among others. And, of course, if you prefer to just work from the command prompt, just install git itself. Most, probably all, Linux systems have a Git package available that can be installed through their package management system. On Ubuntu or Debian for instance, as the root user issue the command <kbd>apt-get install git</kbd> at the command prompt.</p>
 	
-<h3><a name="github_maintaining"></a>4.2 Creating and Maintaining a Git Fork</h3>
+<h3 style="color:#ff0000"><a name="github_maintaining"></a>4.2 Creating and Maintaining a Git Fork</h3>
 	<p>All developers outside the core development team will work in their own fork of the ATutor source code located on GitHub. Creating a fork is pretty straight forward. Once your <a href="https://github.com/plans">GitHub account</a> is setup, and you have logged in, search for the atutor/ATutor repository. At the top of the screen while viewing the repository, click on the <kbd>"Fork"</kbd> button to create a fork of the master source code. You will now have a copy of the source code linked to your account, something like <kbd>[username]/ATutor</kbd>, where [username] is your GitHub login.</p>
 	
 	<p>Now you will want to clone the fork you created into your local development environment. Using your Git client you can then find its "clone" features to generate a local copy, or at the command prompt issue the following commands:</p>
@@ -332,21 +332,21 @@ register_argc_argv   = Off</pre>
 	<kbd>git branch master</kbd> (move into a branch other than the one to be deleted)<br />
 	<kbd>git branch -D new_feature</kbd> (delete the branch from your local repository)<br />
 	<kbd>git push origin :new_feature</kbd> (remove the branch from GitHub)</p>
-<h3><a name="git-install"></a>4.3 Installing from GitHub</h3>
+<h3 style="color:#ff0000"><a name="git-install"></a>4.3 Installing from GitHub</h3>
 	<p>Installing the development code cloned from GitHub requires one extra step in addition to the standard installation described in the <a href="http://atutor.ca/atutor/docs/installation.php#fresh">Installation Instructions</a>. Once the source code has been cloned, change to the ATutor/docs/include directory and create an empty configuration file by issuing the command <kbd>touch config.inc.php</kbd>, then run the installer as described in the instructions.</p>
 	
 	
 <a href="#top" class="top">top</a>
-<h2><a name="communication"></a>5. Communication</h2>
+<h2 style="color:#ff0000"><a name="communication"></a>5. Communication</h2>
 	<p>Much communication between developers occurs in the <a href="http://atutor.ca/forum/12/1.html">Development Forum</a>. Please try to keep discussions public including any feature proposals. You may also communicate with ATutor development team directly through IRC. Using your IRC client, open <kbd>irc://irc.oftc.net/</kbd> then join the <kbd>#atutor</kbd> channel.  </p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="patches"></a>6. Patches</h2>
+<h2 style="color:#ff0000"><a name="patches"></a>6. Patches</h2>
 	<p>As of ATutor 1.6 the Patcher module is available for applying and developing patches to repair bugs, and to add or modify features in between ATutor releases. Details on creating and applying patches can be found in the ATutor Handbook for version 1.6.1+, or on the ATutor Wiki.</p>
 	<p><a href="http://wiki.atutor.ca/display/atutorwiki/Patcher+Module+Documentation">Patcher Documentation</a></p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="editor-tips"></a>7. Editor Tips</h2>
+<h2 style="color:#ff0000"><a name="editor-tips"></a>7. Editor Tips</h2>
 	<p>We use <a href="http://editplus.com">EditPlus</a>, but you can use whichever editor and settings you feel comfortable with. The most important part when editing is to ensure that tabs meet the coding guidelines on <a href="#indentation">indentation</a>. Unix KDE users might use Kate as their text editor.</p>
 
 	<p>A few desirable features for a good text editor are listed below:</p>
@@ -362,15 +362,15 @@ register_argc_argv   = Off</pre>
 
 
 <a href="#top" class="top">top</a>
-<h2><a name="proposed-features"></a>8. Proposed Features</h2>
+<h2 style="color:#ff0000"><a name="proposed-features"></a>8. Proposed Features</h2>
 	<p> New feature requests should be posted to the <a href="http://atutor.ca/forum/2/1.html" title="ATutor.ca - Feature Requests Forum">ATutor Feature Requests</a> forum.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="bug-tracking"></a>9. Bug Tracking</h2>
+<h2 style="color:#ff0000"><a name="bug-tracking"></a>9. Bug Tracking</h2>
 	<p>Please report bugs to the <a href="http://atutor.ca/forum/3/1.html" title="ATutor.ca - Bug Forum">ATutor Bug Reports</a> forum, or directly to the <a href="http://www.atutor.ca/atutor/mantis">Mantis Bug Tracker</a>. Be sure to indicate the code version being used, such as a release candidate, stable release, nightly build, or GitHub clone, etc. Also be sure to describe the details of the system that ATutor is being developed or tested on, such as the operating system, web server and version, PHP version, etc. Browse the <a href="http://www.atutor.ca/development/bugs/">Current Bug Summary</a> for a list of active bug fixing.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="creating-bundles"></a>10. Creating Bundles</h2>
+<h2 style="color:#ff0000"><a name="creating-bundles"></a>10. Creating Bundles</h2>
 	<p>The file <kbd>`bundle.sh`</kbd> is located in the root directory of the ATutor source code and is used for creating bundles from the development working directory. The Shell script must be run on UNIX, it will retrieve the latest version of the language from the language database, disable debugging, create an empty config.inc.php file, and lastly create a <kbd>.tar.gz</kbd> file. Note, by default this script will generate a bundle from the atutor/ATutor GitHub source code repository. You may change this path near the top of the file to point to a local version of the ATutor source code, if for instance you have your own customizations you'd like to build into an installable bundle. Or have it point to your own GitHub repository Usage:</p>
 		
 		<dl>
@@ -380,23 +380,23 @@ register_argc_argv   = Off</pre>
 
 
 <a href="#top" class="top">top</a>
-<h2><a name="writing-portable-code"></a>11. Writing Portable Code</h2>
+<h2 style="color:#ff0000"><a name="writing-portable-code"></a>11. Writing Portable Code</h2>
 	<p>When writing your PHP code please try to use functions that exist since (the minimum requirement) PHP version 5.0.2. If you have to use a function that only exists in later versions of PHP, provide an alternative for older versions. To check if the function is available use either <kbd>version_compare(phpversion(), $min_version)</kbd> or <kbd>function_exists($function_name)</kbd>.</p>
 
 	<p>Code has to work on both Windows and UNIX. You should never use <kbd>exec()</kbd> or <kbd>system()</kbd>. In most cases we prefer to write code that works on both systems as is, without the need for if-statements that check for the operating system, since duplicating the functionality twice (once for each operating system) can be a source of bugs. Review the <a href="#php-configuration">PHP Configuration</a> section for details on how best to set-up your development environment.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="coding-style"></a>12. Coding Style</h2>
+<h2 style="color:#ff0000"><a name="coding-style"></a>12. Coding Style</h2>
 	<p>This section should help those who would like to modify or add code. Anyone who wishes to contribute code must adhere to these guidelines or the code may not be accepted. Please try to write code that is easy to read and maintained with appropriate comments as needed. Correctness and efficiency are easier to certify if code is simple to read and understand.</p>
 
-	<h3><a name="indentation"></a>12.1 Indentation</h3>
+	<h3 style="color:#ff0000"><a name="indentation"></a>12.1 Indentation</h3>
 		<p>The importance of indentation for code organization cannot be overstated. Although indentation is not mandatory in PHP, it is a powerful visual organization tool that should consistently be applied to code.</p>
 		<ul>
 			<li>Indent using 4 spaces for each level.</li>
 			<li>Think carefully about when too many nested levels has been reached. (Usually 4-5 is a good limit).</li>
 		</ul>
 
-	<h3><a name="line-length"></a>12.2 Line Length</h3>
+	<h3 style="color:#ff0000"><a name="line-length"></a>12.2 Line Length</h3>
 		<p>Split the long lines into multiple lines: </p>
 <pre class="code">
 if (($month = 'jan') || ($month = 'feb') || ($month = 'mar') || ($month = 'apr')) {
@@ -423,7 +423,7 @@ echo format_content($content_row['text'],
                     $indent);
 </pre>
 
-	<h3><a name="whitespace"></a>12.3 Using Whitespace</h3>
+	<h3 style="color:#ff0000"><a name="whitespace"></a>12.3 Using Whitespace</h3>
 		<p>Whitespace can be used to provide and reinforce logical structure in the code. For example, it can be effectively used to group assignments and show associations. The following example is poorly formatted and difficult to read:</p>
 
 <pre class="code">
@@ -441,7 +441,7 @@ $first_name  = 'Joel';
 $last_name   = 'Kronenberg';
 </pre>
 
-	<h3><a name="sql-guidelines"></a>12.4 SQL Guidelines</h3>
+	<h3 style="color:#ff0000"><a name="sql-guidelines"></a>12.4 SQL Guidelines</h3>
 		<p>Similar formatting and layout rules applied to PHP can be applied to SQL queries as well. SQL queries, especially in database systems that support complex subqueries, can become convoluted. As with PHP code, whitespace and line breaks should be used in SQL code as needed. Consider the following:</p>
         
 <pre class="code">
@@ -464,7 +464,7 @@ WHERE    S.email = ''
 ORDER BY S.last_name";
 </pre>
 
-		<h3><a name="sql-joins"></a>12.5 SQL/99 Joins</h3>
+		<h3 style="color:#ff0000"><a name="sql-joins"></a>12.5 SQL/99 Joins</h3>
 	   <p>ANSI SQL/99 features ANSI compliant joins. There are several advantages in using this syntax, one of which is the separation of the <kbd>JOIN</kbd> condition from the <kbd>WHERE</kbd> clause.</p>
 <pre class="code">
 SELECT	M.email, M.login 
@@ -479,7 +479,7 @@ FROM	members M
 JOIN	forums_subscriptions S USING (member_id)
 WHERE	M.email &lt;> ''
 </pre>
-<h3><a name="querydb"></a>12.6 Database Queries with queryDB() Function</h3>
+<h3 style="color:#ff0000"><a name="querydb"></a>12.6 Database Queries with queryDB() Function</h3>
 <p>All database queries from ATutor 2.1.1 onward, should be made using the queryDB function.</p>
 <ul>
 <li>12.6.1. Code <br />
@@ -787,7 +787,7 @@ returns: []
 	</ul>
 </li>
 </ul>
-<h3><a name="control-flow-constructs"></a>12.7 Control Flow Constructs</h3>
+<h3 style="color:#ff0000"><a name="control-flow-constructs"></a>12.7 Control Flow Constructs</h3>
 			<ul>
 				<li><em>Always</em> use <kbd>&lt;?php ?></kbd> instead of the short form <kbd>&lt;? ?></kbd>. This implies that you must not use the <kbd>&lt;?=$var;?></kbd> short form either.</li>
 				<li>Always include the optional semicolon in single line PHP blocks: <kbd>&lt;?php echo $something<big>;</big> ?></kbd></li>
@@ -811,7 +811,7 @@ if (condition) {
 			</ul>
 
 
-	<h3><a name="commenting"></a>12.8 Commenting</h3>
+	<h3 style="color:#ff0000"><a name="commenting"></a>12.8 Commenting</h3>
 		<p>Avoid using Shell/Perl-style (<kbd>## this is a comment</kbd>) comments entirely. Use C-style comments (<kbd>/* ... */</kbd>) for large comment blocks and C++-style comments (<kbd>// ...</kbd>) for single-line comments only:</p>
 <pre class="code">
 /* This is a comment block
@@ -845,7 +845,7 @@ if (condition) {
    </pre>
  <p>  Note that the description should be given as plain text not HTML.  The <kbd>@pattern singleton</kbd> means that the constructor returns a reference to an already existing instance, if there is one.</p>
 
-	<h3><a name="naming-conventions"></a>12.9 Naming Conventions</h3>
+	<h3 style="color:#ff0000"><a name="naming-conventions"></a>12.9 Naming Conventions</h3>
 	<ul>
 		<li><a name="naming-variables"></a>12.9.1 Naming Variables:
 			<ul>
@@ -883,10 +883,10 @@ if (condition) {
 	</ul>
 
 <a href="#top" class="top">top</a>
-<h2><a name="directory-structure"></a>13. Directory Structure</h2>
+<h2 style="color:#ff0000"><a name="directory-structure"></a>13. Directory Structure</h2>
 	<p>The following is a short explanation of the important components of the ATutor directory structure.</p>
 
-	<h3><a name="directories"></a>13.1 Directories</h3>
+	<h3 style="color:#ff0000"><a name="directories"></a>13.1 Directories</h3>
 	<dl>
 		<dt><kbd>`admin/`</kbd></dt>
 			<dd>This directory contains files used for the administration area (when a user logs in as an administrator). This includes files for system statistics, instructor requests, management of users, courses, categories and languages, and server configuration.</dd>
@@ -921,7 +921,7 @@ if (condition) {
 
 	</dl>
 
-	<h3><a name="files"></a>13.2 Files</h3>
+	<h3 style="color:#ff0000"><a name="files"></a>13.2 Files</h3>
 	<p>The following is a description of some of the important files.</p>
 	<dl>
 		<dt><kbd>`include/config.inc.php`</kbd></dt>
@@ -948,11 +948,11 @@ if (condition) {
 
 
 <a href="#top" class="top">top</a>
-<h2><a name="database-structure"></a>14. Database Structure</h2>
+<h2 style="color:#ff0000"><a name="database-structure"></a>14. Database Structure</h2>
 	<p>A <a href="atutor_schema.png">database model diagram</a> (1.4MB PNG) created from the ATutor 2.1.1 database schema is available.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="localisation"></a>15. Localisation</h2>
+<h2 style="color:#ff0000"><a name="localisation"></a>15. Localisation</h2>
 	<p>All language terms and phrases are stored in the ATutor database. See the <a href="#fn-at"><kbd>_AT()</kbd></a> function in <kbd>include/lib/output.inc.php</kbd> for details on displaying text. There are three tables that are used for managing languages, their roles are as follows:</p>
 		<dl>
 			<dt><kbd>`language_pages`</kbd></dt>
@@ -966,11 +966,11 @@ if (condition) {
 
 		</dl>
 
-	<h3><a name="adding-language"></a>15.1 Adding &amp; Editing Language</h3>
+	<h3 style="color:#ff0000"><a name="adding-language"></a>15.1 Adding &amp; Editing Language</h3>
 		<p>Please see the <a href="http://www.atutor.ca/atutor/docs/translate.php">Translator Documentation</a> for more details on translating a language within ATutor.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="error-feedback-messages"></a>16. Error and Feedback Messages</h2>
+<h2 style="color:#ff0000"><a name="error-feedback-messages"></a>16. Error and Feedback Messages</h2>
 	<p>All messages are handled using the <kbd>Message</kbd> class. The main purpose of the <kbd>Message</kbd> class is to encapsulate the functionality of tracking 
 		and managing various message types during a session by providing a nice layer of abstraction between you and the interface to <kbd>$_SESSION</kbd>, where the messages are stored.</p>
 
@@ -999,7 +999,7 @@ if (condition) {
 
 	<p>Messages can be passed between pages and can be accessed at any time, without any time restriction other than a session timeout.</p>
 
-	<h3><a name="error-feedback-internals"></a>16.1 Internals</h3>
+	<h3 style="color:#ff0000"><a name="error-feedback-internals"></a>16.1 Internals</h3>
 		<p>Essentially the internals of the class are divided into two segments, a section responsible for printing graphics via Savant templates and another that manages the storage of Messages.</p>
 	
 		<p>Tracking messages is accomplished by storing message codes and their optional arguments associatively in <kbd>$_SESSION</kbd>. Printing messages is accomplished via Savant and built in templates which can be found in <kbd>`themes/default/`</kbd>. Message templates can copied into themes other than default/ and modified to change their appearance, though typically changes are made in a secondary theme's styles.css file.</p>
@@ -1081,7 +1081,7 @@ if (condition) {
 	
 	<p>Messages are automaticaaly purged from <kbd>$_SESSION</kbd> following an appropriate print command.</p>
 
-	<h3><a name="error-feedback-usage"></a>16.2 Adding Messages</h3>
+	<h3 style="color:#ff0000"><a name="error-feedback-usage"></a>16.2 Adding Messages</h3>
 		<p><kbd>$msg->add{Error|Warning|Info|Feedback|Help}($code);</kbd><br /><br /></p>
 
 		<p><kbd>$code</kbd> is a <kbd>String</kbd> of a language _msgs code or an array with element 0 being the language _msgs code followed by optional arguments. Refer to the language_text table in the database.</p>
@@ -1156,7 +1156,7 @@ if (condition) {
 <dt><kbd>exit;</kbd></dt>
 </dl>
 
-<h3><a name="error-feedback-printing"></a>16.3 Printing Messages</h3>
+<h3 style="color:#ff0000"><a name="error-feedback-printing"></a>16.3 Printing Messages</h3>
 <p><kbd>$msg->print{Errors|Warnings|Infos|Feedbacks|Helps|All}($optional);</kbd><br/><br/></p>
 
 <p>Each will dump all the corresponding tracked messages of that type onto
@@ -1183,7 +1183,7 @@ can also be accomplished as:
 $msg->printErrors('MAX_ATTEMPTS');
 </pre>
 
-<h4><a name="Boolean"></a>Printing String inside Feedback style box</h4>
+<h4 style="color:#ff0000"><a name="Boolean"></a>Printing String inside Feedback style box</h4>
 
 <p><kbd>printNoLookup($str);</kbd><br/><br/></p>
 
@@ -1192,7 +1192,7 @@ no dialog with <kbd>$_SESSION</kbd> or any language mappings in the language_tex
 Strictly used in <kbd>/resources/links/index.php</kbd> for compatibility.
 </p>
 
-<h4><a name="Boolean"></a>Checking for existance of specific Message type</h4>
+<h4 style="color:#ff0000"><a name="Boolean"></a>Checking for existance of specific Message type</h4>
 
 <p><kbd>contains{Errors|Warnings|Feedbacks|Helps|Infos}();</kbd><br/><br/></p>
 
@@ -1200,7 +1200,7 @@ Strictly used in <kbd>/resources/links/index.php</kbd> for compatibility.
 some kind of data. Useful for branching conditions in knowning
 when to print a Message or not. Otherwise returns false.</p>
 
-<h4><a name="Boolean"></a>Manually Deleting a specific Message from storage</h4>
+<h4 style="color:#ff0000"><a name="Boolean"></a>Manually Deleting a specific Message from storage</h4>
 
 <p><kbd>delete{Error|Warning|Feedback|Help|Info}($codcuee);</kbd><br/><br/></p>
 
@@ -1210,7 +1210,7 @@ when to print a Message or not. Otherwise returns false.</p>
 	$msg->deleteFeedback('CANCELLED');
 </pre>
 
-<h4><a name="Example"></a>Example Code</h4>
+<h4 style="color:#ff0000"><a name="Example"></a>Example Code</h4>
 	
 <pre class="code">
 
@@ -1338,7 +1338,7 @@ $msg->printAll();
  ...
 </pre>
 <a href="#top" class="top">top</a>
-<h2><a name="mbstring-support"></a>16.4 UTF-8 and Multibyte language</h2>
+<h2 style="color:#ff0000"><a name="mbstring-support"></a>16.4 UTF-8 and Multibyte language</h2>
 	<p>As of ATutor 1.6, string parsing is done with multibtyle string functions, either the <kbd>mbstring</kbd> function in PHP itself, or the multibyte string functions in the UTF-8 library included with ATutor. By default ATutor will attempt to use the PHP <kbd>mbstring</kbd> functions, and will fall back on the ATutor library if this fails. In order to support both methods of string processing, a set of custom string parsing functions have been created. The only time the ATutor functions will be used is when the mbstring check during the installation or upgrade process has been disabled. The functions mirror the standard string parsing function in PHP, but with the <kbd>$</kbd> prepended. So, where ever you would normally use a PHP function like <kbd>substr() </kbd>, instead use <kbd>$substr()</kbd>. These functions are located in the vitals.inc.php file.</p>
 <pre class="code">
  if (extension_loaded('mbstring')){
@@ -1360,7 +1360,7 @@ $msg->printAll();
 </pre>
 
 
-	<h3>String functions </h3>
+	<h3 style="color:#ff0000">String functions </h3>
 		<ul>
 			<li><kbd>string <strong>$strtolower</strong>(string $str)</kbd> -- UTF-8 aware strtolower function.  Make a string lowercase </li>
 			<li><kbd>string <strong>$strtoupper</strong>(string $str)</kbd> -- UTF-8 aware strtolower function.  Make a string uppercase </li>
@@ -1370,27 +1370,27 @@ $msg->printAll();
 			<li><kbd>string <strong>validate_length</strong>(string $input, int $len, int $forDisplay)</kbd> -- Checks if the input data has exceeded the database perferred length, if so, the input will be truncated and returned. </li>
 		</ul>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p>Starting from 1.6, the above string functions will replace the original string functions when dealing with strings in order to adapt the utf-8 environment.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 		<p><kbd>`include/vitals.inc.php`</kbd></p>
 		
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>To alter a text to lowercase:</p>
 		<pre class="code">
 		$str = 'Αρχαίο Πνεύμα';
 		echo $strtolower($str);
 		</pre>
 
-		<h4>Example 2</h4>
+		<h4 style="color:#ff0000">Example 2</h4>
 		<p>To alter a text to uppercase:</p>
 		<pre class="code">
 		$str = 'Αρχαίο Πνεύμα';
 		echo $strtoupper($str);
 		</pre>
 
-		<h4>Example 3</h4>
+		<h4 style="color:#ff0000">Example 3</h4>
 		<p>To find the middle character of a string:</p>
 		<pre class="code">
 		$str = 'Αρχαίο Πνεύμα';
@@ -1398,7 +1398,7 @@ $msg->printAll();
 		echo $strpos($mid, $str);
 		</pre>
 
-		<h4>Example 4</h4>
+		<h4 style="color:#ff0000">Example 4</h4>
 		<p>To check if the string has the appropriate length:</p>
 		<pre class="code">
 		$str = 'Αρχαίο Πνεύμα';
@@ -1407,40 +1407,40 @@ $msg->printAll();
 		</pre>
 
 <a href="#top" class="top">top</a>
-<h2><a name="useful-variables"></a>17. Useful Variables</h2>
+<h2 style="color:#ff0000"><a name="useful-variables"></a>17. Useful Variables</h2>
 	<p>Most of the variables documented here are required for most pages to function correctly. <kbd>constant</kbd> variables, although not explicitly declared as constants, should be considered as such, and not altered.</p>
 
-	<h3><a name="var-db"></a>17.1 $db</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-db"></a>17.1 $db</h3>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>constant resource $db</kbd></p>
 
 			<p><kbd>$db</kbd> is the main database handler. Use it to connect to the ATutor database.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p >
-        <h4>NOTE:</h4>
+        <h4 style="color:#ff0000">NOTE:</h4>
     	<p>The <kbd>$db</kbd> variable should not be use in versions of ATutor 2.1.1 and beyond, with database queries now being handles by the <a href="#querydb">queryDB()</a> function.</p>
-	<h3><a name="var-addslashes"></a>17.2 $addslashes</h3>
+	<h3 style="color:#ff0000"><a name="var-addslashes"></a>17.2 $addslashes</h3>
 		<p>See <a href="#fn-addslashes"><kbd>$addslashes()</kbd></a>.</p>
 
-	<h3><a name="var-base_href"></a>17.3 $_base_href</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-base_href"></a>17.3 $_base_href</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant string $_base_href</kbd></p>
 		<p>The full URL to the base href of the current page, an equivalence of the "href" attribute value in the page html &lt;base&gt; tag. Supports both regular and SSL protocols. Example: <kbd>http://myserver.org/files/ATutor/</kbd>.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/constants.inc.php`</kbd></p>
 
-	<h3><a name="var-base_path"></a>17.4 $_base_path</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-base_path"></a>17.4 $_base_path</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant string $_base_path</kbd></p>
 		<p>Extracted from $_base_href, the full absolute base path of the current page. Example: <kbd>/files/ATutor/</kbd>.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/constants.inc.php`</kbd></p>
 
-	<h3><a name="var-user_location"></a>17.5 $_user_location</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-user_location"></a>17.5 $_user_location</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant $_user_location</kbd></p>
 		<p><kbd>$_user_location</kbd> can be one of five values: <kbd>`public`</kbd>, <kbd>`admin`</kbd>, <kbd>`users`</kbd>, <kbd>`prog`</kbd> or <em>empty</em>. This variable must be set <em>before</em> requiring <kbd>`vitals.inc.php`</kbd>, and specifies what kind of general user authentication the page declaring it needs.</p>
 
@@ -1448,22 +1448,22 @@ $msg->printAll();
 
 		<p>This variable was added as a way of specifying which template to use (public, admin, or member). Its role as a way of authenticating is not thoroughly established.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><em>Declared on every page that is directly accessible.</em></p>
 
 
-	<h3><a name="var-rel_url"></a>17.6 $_rel_url</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-rel_url"></a>17.6 $_rel_url</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant string $_rel_url</kbd></p>
 		<p>The absolute path and file name relative to ATutor's base installation. If ATutor was installed in <kbd>http://myserver.org/files/ATutor/</kbd>, the <kbd>$_rel_url</kbd> of the Site-Map page, for example, would evaluate to <kbd>/tools/sitemap/index.php</kbd>.</p>
 
 		<p>This URL will always be the same for a given page, regardless of the location or path of an installation. This variable was added as a way of standardising the <kbd>`page`</kbd> value in the <kbd>`lang_base_pages`</kbd> table.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/constants.inc.php`</kbd></p>
 
-	<h3><a name="var-my_uri"></a>17.7 $_my_uri</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-my_uri"></a>17.7 $_my_uri</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant string $_my_uri</kbd></p>
 		<p>The full path and file name to the current page in a format that is ready to accept additional URL arguments. The argument separator will be defined as <kbd><a href="#const-sep">SEP</a></kbd>.  For example, if the current URL is <kbd>http://myserver.org/index.php?cid=806;disable=PREF_MENU;menu_jump=2</kbd>, then <kbd>$_my_uri</kbd> would be <kbd>/index.php?cid=806;</kbd>.</p>
 
@@ -1471,28 +1471,28 @@ $msg->printAll();
 
 		<kbd>enable</kbd>, <kbd>disable</kbd>, <kbd>expand</kbd>, <kbd>menu_jump</kbd>, <kbd>g</kbd>, <kbd>collapse</kbd>, <kbd>f</kbd>, <kbd>e</kbd>, <kbd>save</kbd>, and <kbd>lang</kbd>.</p>
 		
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/vitals.inc.php`</kbd></p>
 
-	<h3><a name="var-content_manager"></a>17.8 $contentManager</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="var-content_manager"></a>17.8 $contentManager</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>constant ContentManager $contentManager</kbd></p>
 		<p>The <kbd>$contentManager</kbd> object provides access to methods for operating on content. All access to the <kbd>`content`</kbd> table should be done through this object.</p>
 
-		<h4>Locations</h4>
+		<h4 style="color:#ff0000">Locations</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd><br />
 			<kbd>`include/classes/ContentManager.class.php`</kbd></p>
 
-	<h3><a name="var-section"></a>17.9 $_section</h3>
+	<h3 style="color:#ff0000"><a name="var-section"></a>17.9 $_section</h3>
 		<p><strong>Deprecated in ATutor 1.5</strong></p>
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 		<p><kbd>array $_section</kbd></p>
 
 		<p>This variable is a two-dimensional <kbd>array</kbd> used to display a page's breadcrumbs. The first index identifies the page starting from <kbd>0</kbd> such that <kbd>$_section[0]</kbd> defines the first page in the hierarchy, <kbd>$_section[1]</kbd> the second, and so on. The second index is used to assign that page's properties, defined as follows: index <kbd>0</kbd> is the page title, and index <kbd>1</kbd> is the URL. This variable must be defined <em>before</em> the <kbd>`header.inc.php</kbd> file is required.</p>
 		
 		<p>The URL for the last page (i.e.. the current page) is optional.</p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 			<p>To assign the path to the site-map:</p>
 <pre class="code">
 // the Site-Map is a sub-page of the Tools page, hence we define the path:
@@ -1503,18 +1503,18 @@ $_section[1][0] = _AT('sitemap');            // the Site-Map's page title
 $_section[1][1] = 'tools/sitemap/index.php'; // the Site-Map's page URL
 </pre>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><em>Declared on every page that is directly accessible.</em></p>
 
 		
 <a href="#top" class="top">top</a>
-<h2><a name="useful-functions"></a>18. Useful Functions</h2>
+<h2 style="color:#ff0000"><a name="useful-functions"></a>18. Useful Functions</h2>
 	<p>The functions listed below provide vital functionality for ATutor pages. Developers will most likely end up using most, if not all, of the functions below. Please review the <a href="#function-definitions">Function Definitions (Prototypes)</a> section for an explanation of the syntax being used. Additional javadoc comments can be found with each function's definition.</p>
 
-	<h3><a name="fn-authenticate"></a>18.1 authenticate()</h3>
+	<h3 style="color:#ff0000"><a name="fn-authenticate"></a>18.1 authenticate()</h3>
 		<p><kbd>authenticate()</kbd> -- Authenticates the current user against a specified privilege.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>mixed <strong>authenticate</strong>( <em>integer $privilege [, boolean $check]</em> )</kbd></p>
 
 			<p>Authenticates the current user against <kbd>$privilege</kbd>. If <kbd>$check</kbd> is <kbd>AT_PRIV_RETURN</kbd> then the function will return the status of the authentication with <kbd>TRUE</kbd> meaning the user has been successfully authenticated or <kbd>FALSE</kbd> otherwise. With <kbd>$check</kbd> set to <kbd>FALSE</kbd> (default), the function will call <kbd>exit</kbd> to abort the script if the user cannot be authenticated and return <kbd>TRUE</kbd> otherwise.</p>
@@ -1525,10 +1525,10 @@ $_section[1][1] = 'tools/sitemap/index.php'; // the Site-Map's page URL
 
 			<p>Please use only <kbd>AT_PRIV_RETURN</kbd> or <kbd>FALSE</kbd> as possible values for <kbd>$check</kbd> as additional options may be added and the value of the constant changed.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 			<p>To authenticate an entire page using the announcements management privilege:</p>
 <pre class="code">
 define('AT_INCLUDE_PATH', '../include/');
@@ -1539,7 +1539,7 @@ require (AT_INCLUDE_PATH . 'vitals.inc.php');
  */
 authenticate(AT_PRIV_ANNOUNCEMENTS);
 </pre>
-		<h4>Example 2</h4>
+		<h4 style="color:#ff0000">Example 2</h4>
 			<p>To authenticate a block of code using the forums management privilege:</p>
 <pre class="code">
 if (authenticate(AT_PRIV_FORUMS, AT_PRIV_RETURN)) {
@@ -1547,20 +1547,20 @@ if (authenticate(AT_PRIV_FORUMS, AT_PRIV_RETURN)) {
 }
 </pre>
 
-	<h3><a name="fn-at"></a>18.2 _AT()</h3>
+	<h3 style="color:#ff0000"><a name="fn-at"></a>18.2 _AT()</h3>
 		<p><kbd>_AT()</kbd> -- Returns translated terms.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>_AT</strong>( string $term [, string $argument1 [, string $argument2 ...]] )</kbd></p>
 			
 			<p>This function returns a translated version of <kbd>$term</kbd> based on the user's current language preference as defined in <kbd>$_SESSION[lang]</kbd>. If <kbd>$term</kbd> cannot be found in the language database, it will return <kbd>`[ $term ]`</kbd> to signify that it was not found.</p>
 
 			<p>Terms may require supplements in the form of additional arguments (see example 2). A term may require zero or more arguments. If a <kbd>term</kbd> requires arguments, then they must all be provided; no argument can be left out.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/output.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 			<p>Printing a single term:</p>
 <pre class="code">
 /* echo a translated version of the 'tools' string.
@@ -1578,7 +1578,7 @@ echo '&lt;h2>' . _AT('tools') . '&lt;/h2>';
 &lt;h2>Outils&lt;/h2>
 </pre>
 
-		<h4>Example 2</h4>
+		<h4 style="color:#ff0000">Example 2</h4>
 			<p>Printing a phrase with arguments:</p>
 <pre class="code">
 $username = 'Jon';
@@ -1588,10 +1588,10 @@ echo _AT('welcome_message', $username);
 <pre class="code">Hello, Jon. Welcome back.</pre>
 
 
-	<h3><a name="fn-at_print"></a>18.3 AT_print()</h3>
+	<h3 style="color:#ff0000"><a name="fn-at_print"></a>18.3 AT_print()</h3>
 		<p><kbd>AT_print()</kbd> -- Transforms and formats user data for printing.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>AT_print</strong>( string $input, string $field_name [, boolean $runtime_html] )</kbd></p>
 
 			<p>This function returns a transformed version of <kbd>$input</kbd> based on the rules specified by <kbd>$field_name</kbd>. <kbd>$input</kbd> is assumed to originate from the database, but it may be generalised in the future.</p>
@@ -1602,10 +1602,10 @@ echo _AT('welcome_message', $username);
 
 			<p>No data from the database should be printed without passing it through this function first.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/output.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>Printing a field where HTML is not allowed:</p>
 <pre class="code">
 $username = 'my_name&lt;b>_is';
@@ -1616,10 +1616,10 @@ echo $value</pre>
 <pre class="code">my_name&lt;b>_is</pre>
 
 
-	<h3><a name="fn-at_date"></a>18.4 AT_date()</h3>
+	<h3 style="color:#ff0000"><a name="fn-at_date"></a>18.4 AT_date()</h3>
 		<p><kbd>AT_date()</kbd> -- Returns a localised version of a date.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>AT_date</strong>( [string $format [, integer $timestamp [, integer $format_type]]] )</kbd></p>
 
 			<p>This function returns the <kbd>string</kbd> representation of the given <kbd>$timestamp</kbd> as transformed by <kbd>$format</kbd>. Uses the same options as PHP's <kbd><a href="http://www.php.net/date" title="PHP.net - date()">date()</a></kbd> function, but requires a <kbd>%</kbd> in front of each argument. If <kbd>$timestamp</kbd> is not specified, then the current time will be used.</p>
@@ -1668,10 +1668,10 @@ echo $value</pre>
 
 			<p>In most (soon to be all) cases, <kbd>$format</kbd> will be specified using a call to <kbd>_AT()</kbd> to retrieve the correct date format for that language. See Example 2 below.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/output.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 			<p>Returning a specified date using a UNIX time stamp:</p>
 <pre class="code">
 $time = mktime(0, 0, 0, 7, 14, 2004);
@@ -1710,18 +1710,18 @@ The second month in French is: &lt;?php echo AT_date('%F', 2, AT_DATE_INDEX_VALU
 The second month in French is: f憝rier
 </pre>
 
-	<h3><a name="fn-addslashes"></a>18.5 $addslashes()</h3>
+	<h3 style="color:#ff0000"><a name="fn-addslashes"></a>18.5 $addslashes()</h3>
 		<p><kbd>$addslashes()</kbd> -- Quotes a string with slashes.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>$addslashes</strong>( string $str )</kbd></p>
 
 			<p>If <kbd>get_magic_quotes_gpc</kbd> is disabled, then this variable function maps onto <kbd><a href="http://www.php.net/addslashes" title="PHP.net - addslashes()">addslashes()</a></kbd>, otherwise it maps onto <kbd>my_add_null_slashes()</kbd> which simply returns the input <kbd>$str</kbd> unchanged.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 			<p>With <kbd>magic_quotes_gpc</kbd> enabled:</p>
 <pre class="code">
 $str = "What's going on?";
@@ -1736,7 +1736,7 @@ echo $addslashes($str);
 echo addslashes($str);
 </pre>
 
-		<h4>Example 2</h4>
+		<h4 style="color:#ff0000">Example 2</h4>
 			<p>With <kbd>magic_quotes_gpc</kbd> disabled:</p>
 <pre class="code">
 $str = "What's going on?";
@@ -1752,20 +1752,20 @@ echo addslashes($str);
 </pre>
 
 
-	<h3><a name="fn-debug"></a>18.6 debug()</h3>
+	<h3 style="color:#ff0000"><a name="fn-debug"></a>18.6 debug()</h3>
 		<p><kbd>debug()</kbd> -- Outputs a variable.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>void <strong>debug</strong>( mixed $var [, string $title] )</kbd></p>
 
 			<p>This function is used for printing variables for debugging. <kbd>$var</kbd> can be of any type. The output is nicely formatted and easy to read. <kbd>debug()</kbd> will not output anything if the constant <kbd><a href="#const-devel">AT_DEVEL</a></kbd> evaluates to <kbd>FALSE</kbd>.</p>
 
 			<p><kbd>$title</kbd> is available to label the debugging box for distinguishing it from other debugging boxes on the same page.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>Viewing the contents of an <kbd>array</kbd>:</p>
 <pre class="code">
 $my_array = array('apple' => 'green', 4 => 'something');
@@ -1782,32 +1782,32 @@ Array
 )
 </pre>
 
-	<h3><a name="fn-get_login"></a>18.7 get_login()</h3>
+	<h3 style="color:#ff0000"><a name="fn-get_login"></a>18.7 get_login()</h3>
 		<p><kbd>get_login()</kbd> -- Returns the login name of a member.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>get_login</strong>( integer $id )</kbd></p>
 
 			<p>Returns the login name of the member whose ID is <kbd>$id</kbd>. There is no error handling.</p>
 		
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 
 
-	<h3><a name="fn-urlencode_feedback"></a>18.8 urlencode_feedback()</h3>
+	<h3 style="color:#ff0000"><a name="fn-urlencode_feedback"></a>18.8 urlencode_feedback()</h3>
 		<p><kbd>urlencode_feedback()</kbd> -- Encodes a feedback code.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>mixed <strong>urlencode_feedback</strong>( mixed $f )</kbd></p>
 
 			<p>This function returns a URL safe encoding of a feedback code. Its purpose is to encode the feedback into the URL so that the page being redirected to will then output the feedback. <kbd>$f</kbd> may be an <kbd>array</kbd> of feedback codes, where additionally, each feedback code may be an array consisting of supplementary arguments. If <kbd>$f</kbd> is an <kbd>array</kbd> then the return value will be its <kbd>string</kbd> representation, otherwise the function will return <kbd>$f</kbd> unchanged.</p>
 
 			<p>The way feedback is implemented may change in the future, so it is best to use this function even if the feedback code is not an <kbd>array</kbd>.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 		
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>To encode a feedback array:</p>
 <pre class="code">
 $f[] = array(AT_FEEDBACK_FILE_UPLOADED_ZIP, $file_name);
@@ -1816,10 +1816,10 @@ header('Location: file_manager.php?f='.urlencode_feedback($f));
 exit;
 </pre>
 
-	<h3><a name="fn-url_rewrite"></a>18.9 url_rewrite()</h3>
+	<h3 style="color:#ff0000"><a name="fn-url_rewrite"></a>18.9 url_rewrite()</h3>
 		<p><kbd>url_rewrite()</kbd> -- Change an url to a pretty url.</p>
 
-		<h4>Description</h4>
+		<h4 style="color:#ff0000">Description</h4>
 			<p><kbd>string <strong>url_rewrite</strong>( string $url, boolean $is_rewriting_header, boolean $force)</kbd></p>
             <dl>
 			<dt><kbd>$url</kbd></dt>
@@ -1834,50 +1834,50 @@ exit;
 
 			<p>This function returns a pretty URL from the given parameter. Its purpose is to change the URLs to a "prettier" format in order to extend user friendliness in the system, and to create indexes for Google search.  This function will authenticate itself towards the current pages.  In our definition, admins, login, registration pages should not have pretty url applied.  However, if one want to use url_rewrite on these pages, please set <kbd>$force</kbd> to TRUE, this will force it to change the urls to pretty urls.  Please note that the admin's system preference will still overwrite the force effect.  <kbd>$url</kbd> may be an <kbd>string</kbd> of URL, '?' and the seprators in the URL query will be replaced by slashes.  Please note that the PHP_SELF variable might break some of the form action/header redirect because the Pretty URI is a virtual path.  To address this problem, set $is_rewriting_header to AT_PRETTY_URL_IS_HEADER, as demonstrated in example 3.  </p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 		
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>To change an URL:</p>
 <pre class="code">
 $url = 'forum/view.php?fid=3&amp;pid=4';
 echo url_rewrite($url);		//output go.php/1/forum/view.php/fid/3/pid/4
 </pre>
 
-		<h4>Example 2</h4>
+		<h4 style="color:#ff0000">Example 2</h4>
 		<p>To change an URL for mods:</p>
 <pre class="code">
 $url = 'mods/hello_world/index.php';
 echo url_rewrite($url, true);		//output go.php/1/mods/hello_world/index.php
 </pre>
 
-		<h4>Example 3</h4>
+		<h4 style="color:#ff0000">Example 3</h4>
 		<p>To change an URL for header redirection:</p>
 <pre class="code">
 header('Location: '. url_rewrite('forum/index.php', AT_PRETTY_URL_IS_HEADER)); 
 </pre>
 
 <a href="#top" class="top">top</a>
-<h2><a name="useful-constants"></a>19. Useful Constants</h2>
+<h2 style="color:#ff0000"><a name="useful-constants"></a>19. Useful Constants</h2>
 	<p>These constants are part of the vital functionality of ATutor.</p>
 
-	<h3><a name="const-include_path"></a>19.1 AT_INCLUDE_PATH</h3>
-	<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="const-include_path"></a>19.1 AT_INCLUDE_PATH</h3>
+	<h4 style="color:#ff0000">Description</h4>
 		<p>The <kbd>AT_INCLUDE_PATH</kbd> must be defined <em>before</em> you <kbd>require</kbd> or <kbd>include</kbd> any files. The constant defines the relative path to the <kbd>`include/`</kbd> directory. For security reasons <em>no</em> file should ever be called-in without using this constant<em>!</em></p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>Requiring the vitals file from the tools page:</p>
 				<pre class="code">define('AT_INCLUDE_PATH', '../include/');
 require (AT_INCLUDE_PATH . 'vitals.inc.php');</pre>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><em>Declared on every page that is directly accessible.</em></p>
 
-	<h3><a name="const-sep"></a>19.2 SEP</h3>
-	<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="const-sep"></a>19.2 SEP</h3>
+	<h4 style="color:#ff0000">Description</h4>
 		<p>For XHTML compliance, we have created this constant to use when applying variables to URL arguments. The constant is one of the values defined by PHP's <kbd>arg_separator.input</kbd>, with a preference for the semi-colon (<kbd>`;`</kbd>), if available, over the ampersand (<kbd>`&amp;`</kbd>).</p>
 
-		<h4>Example 1</h4>
+		<h4 style="color:#ff0000">Example 1</h4>
 		<p>Printing a dynamic link:</p>
 <pre class="code">
 $arg1 = 'one';
@@ -1892,50 +1892,50 @@ SEP is ;
 &lt;a href="index.php?arg1=one;arg2=two">link&lt;/a>
 </pre>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/constants.inc.php`</kbd></p>
 
 
-	<h3><a name="const-devel"></a>19.3 AT_DEVEL</h3>
-	<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="const-devel"></a>19.3 AT_DEVEL</h3>
+	<h4 style="color:#ff0000">Description</h4>
 		<p>Enables or disables usage of the <a href="#fn-debug">debug()</a> function.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/vitals.inc.php`</kbd></p>
 
 
-	<h3><a name="const-table_prefix"></a>19.4 TABLE_PREFIX</h3>
-	<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="const-table_prefix"></a>19.4 TABLE_PREFIX</h3>
+	<h4 style="color:#ff0000">Description</h4>
 		<p>The <kbd>TABLE_PREFIX</kbd> constant holds the prefix to the ATutor database tables. It is needed when creating SQL queries.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/config.inc.php`</kbd></p>
 
 
-	<h3><a name="const-version"></a>19.5 VERSION</h3>
-		<h4>Description</h4>
+	<h3 style="color:#ff0000"><a name="const-version"></a>19.5 VERSION</h3>
+		<h4 style="color:#ff0000">Description</h4>
 		<p>The version number of this ATutor installation.</p>
 
-		<h4>Location</h4>
+		<h4 style="color:#ff0000">Location</h4>
 			<p><kbd>`include/lib/constants.inc.php`</kbd></p>
 
 
 
 <a href="#top" class="top">top</a>
-<h2><a name="install-upgrade-scripts"></a>20. Install &amp; Upgrade Scripts</h2>
+<h2 style="color:#ff0000"><a name="install-upgrade-scripts"></a>20. Install &amp; Upgrade Scripts</h2>
 	<p>Installing or upgrading ATutor is done with the scripts found in the <kbd>`install/`</kbd> directory. Two files in particular control the installation or upgrading flow and are appropriately named <kbd>`install.php`</kbd> and <kbd>`upgrade.php`</kbd>. For actual documentation on installing or upgrading please see <a href="http://atutor.ca/atutor/docs/installation.php">ATutor's official documentation</a>.</p>
 
 	<p>The <kbd>`install/`</kbd> directory contains two other subdirectories that are used during the installation or upgrade process. The <kbd>`install/db/`</kbd> directory contains database schema files and are clearly labeled. The <kbd>`install/include/`</kbd> directory contains scripts that are common to both processes and labeled according to their order in either process.</p>
 
-	<h3><a name="install-script"></a>20.1 Install Script</h3>
+	<h3 style="color:#ff0000"><a name="install-script"></a>20.1 Install Script</h3>
 		<p>The <kbd>`install.php`</kbd> script requires each step as it's needed as the <kbd>$step</kbd> counter variable is incremented. To add or edit a step, edit the <kbd>`install.php`</kbd> file.</p>
 
-	<h3><a name="upgrade-script"></a>20.2 Upgrade Script</h3>
+	<h3 style="color:#ff0000"><a name="upgrade-script"></a>20.2 Upgrade Script</h3>
 		<p>The <kbd>`upgrade.php`</kbd> script works exactly the same as the install script does, but requires different files (step prefixed with a 'u'). To upgrade the database schema an SQL file named <kbd>`atutor_upgrade_<em>from</em>_to_<em>to</em>.sql`</kbd> must be created, where <kbd><em>from</em></kbd> is the exact version of the previous ATutor version, and <kbd><em>to</em></kbd> is the next stable version.</p>
 
 
 <a href="#top" class="top">top</a>
-<h2><a name="accessibility"></a>21. Accessibility</h2>
+<h2 style="color:#ff0000"><a name="accessibility"></a>21. Accessibility</h2>
 	<p>Part of ATutor's philosophy is to be "designed with accessibility and adaptability in mind", we advise you to consider carefully the practices outlined on the following sites:</p>
 	<ul>
 		<li><a href="http://www.w3.org/WAI/References/QuickTips/#QuickTips">WAI Quick Tips</a></li>
@@ -1944,11 +1944,11 @@ SEP is ;
 	</ul>
 
 <a href="#top" class="top">top</a>
-<h2><a name="validation"></a>22. Validation</h2>
+<h2 style="color:#ff0000"><a name="validation"></a>22. Validation</h2>
 	<p>Please use the <a href="http://validator.w3.org/">W3C Markup Validation Service</a>, a free service, to check your pages for XHTML conformance, W3C Recommendations and other standards.</p>
 
 <a href="#top" class="top">top</a>
-<h2><a name="example"></a>23. Sample Script</h2>
+<h2 style="color:#ff0000"><a name="example"></a>23. Sample Script</h2>
 <p>The following is sample code that shows the general flow of an ATutor script. The example shows how you may use some of the variables and functions available to you. Some scripts may not need all the variables and functions used below.</p>
 <pre class="code" id="code">&lt;?php
 // 1. define relative path to `include` directory:
@@ -2001,7 +2001,7 @@ require (<a href="#const-include_path">AT_INCLUDE_PATH</a> . '<a href="#files-fo
 ?></pre>
 
 <a href="#top" class="top">top</a>
-<h2><a name="credits-sources"></a>24. Credits &amp; Additional Sources</h2>
+<h2 style="color:#ff0000"><a name="credits-sources"></a>24. Credits &amp; Additional Sources</h2>
 	<ul>
 		<li><a href="http://atutor.ca">ATutor.ca</a></li>
 		<li><a href="http://atutor.ca/forum/12/1.html">ATutor Developer Support Forum</a></li>
@@ -2020,11 +2020,11 @@ require (<a href="#const-include_path">AT_INCLUDE_PATH</a> . '<a href="#files-fo
 			</ul>
 		</li>
 		<li>Tools
-			<ol>
+			<ul>
 				<li><a href="http://www.phpmyadmin.net">phpMyAdmin</a></li>
 				<li><a href="http://editplus.com">EditPlus</a></li>
 				<li><a href="http://git-scm.com/downloads/guis">Git Clients</a></li>
-			</ol>
+			</ul>
 		</li>
 	</ul>
 
